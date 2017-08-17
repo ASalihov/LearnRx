@@ -1,3 +1,8 @@
+import { Injectable } from "@angular/core";
+import { Subject, BehaviorSubject } from "rxjs";
+import { User } from "./user.model";
+
+@Injectable()
 export class UserService {
     currentUser: Subject<User> = new BehaviorSubject<User>(null);
 
@@ -8,3 +13,5 @@ export class UserService {
         this.currentUser.next(newUser);
     }
 }
+
+export const userServiceInjectables: Array<any> = [UserService];
